@@ -1,0 +1,7 @@
+function Location(x, y) {
+    this.x = x;
+    this.y = y;
+}
+Location.prototype.plus = function(loc) {
+    return new Location(this.x + loc.x, this.y + loc.y);
+}

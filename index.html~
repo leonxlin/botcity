@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+  <title>botcity</title>
+</head>
+
+<body>
+  <script>
+    console.log("oohlaalah");
+  </script>
+  <script src="http://d3lp1msu2r81bx.cloudfront.net/kjs/js/lib/kinetic-v4.5.4.min.js"></script>
+  <script>
+    console.log("oohlaalah");
+  </script>
+
+  <div id='map'>
+  </div>
+  <script>
+    console.log("oohlaalah");
+  </script>
+
+  <script src="kinetic_test.js"></script>
+  <script>
+    console.log("oohlaalah");
+  </script>
+  <script src="bot.js"></script>
+  <script>
+    console.log("oohlaalah");
+  </script>
+  <script src="location.js"></script>
+  <script>
+    console.log("oohlaalah");
+  </script>
+
+</body>
+
+</html>
