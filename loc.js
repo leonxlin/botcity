@@ -24,6 +24,8 @@ function Map(layer, nr, nc) {
     layer.add(this.pic);
 }
 Map.prototype.cell = function(r, c) {
+    r = r >= this.nr ? this.nr-1 : (r < 0 ? 0 : r);
+    c = c >= this.nc ? this.nc-1 : (c < 0 ? 0 : c);
     if (!this.cells[r][c]) {
        this.cells[r][c] = new Cell(this, r, c); 
     }
@@ -49,9 +51,17 @@ function Cell(map, r, c) {
     this.r = r;
     this.c = c;
 }
+Cell.dirDeltas = [[-1,0],[0,1],[1,0],[0,-1]];
+Cell.prototype.plusDir = function(dir) {
+    delta = Cell.dirDeltas[dir];
+    return this.map.cell(this.r + delta[0], this.c + delta[1]);
+}
+Cell.fixDir = function(d) {
+    return (d%4 + 4)%4;
+}
 
 Cell.prototype.topLeft = function() {
-    return new Loc(this.map.cellSize*this.r, this.map.cellSize*this.c);
+    return new Loc(this.map.cellSize*this.c, this.map.cellSize*this.r);
 };
 
 Cell.prototype.center = function() {
