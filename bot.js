@@ -12,6 +12,12 @@ Bot.prototype.place = function(cell) {
     this.pic.add(this.body()).add(this.eyes());
     //this.pic.add(this.eyes());
     this.pic.setScale(cell.map.cellSize);
+    this.pic.on('mouseover', function() {
+        document.body.style.cursor = 'pointer';
+    });
+    this.pic.on('mouseout', function() {
+        document.body.style.cursor = 'default';
+    });
     cell.map.pic.add(this.pic);
     cell.map.layer.draw();
 };
