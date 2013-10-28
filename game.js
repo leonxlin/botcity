@@ -1,18 +1,36 @@
-(function() {
-    var stage = new Kinetic.Stage({
-        container: 'map',
-        width: 800,
-        height: 800
-    });
-    
-    var layer = new Kinetic.Layer();
-    stage.add(layer);
+var Game = {
+    bots: [],
+    init: function() {
+        this.stage = new Kinetic.Stage({
+            container: 'map',
+            width: 800,
+            height: 800
+        });
+        
+        this.layer = new Kinetic.Layer();
+        this.stage.add(this.layer);
 
-    map = new Map(layer, 10, 10);
-    map.drawGrid();
+        Map.init();
 
-    bot = new Bot();
-    cell = map.cell(3,3);
-    bot.place(cell);
-})();
+        bot = new Bot();
+        bot.place(Map.cell(5,5));
+
+        this.draw();
+    },
+    focus: function(obj) {
+        if (this.focusedObj) {
+            this.focusedObj.blur();
+        }
+        obj.focus();
+        this.focusedObj = obj;
+        this.draw();
+    },
+    draw: function() {
+        this.layer.draw();
+    }
+};
+
+Game.init();
+
+
 
