@@ -100,6 +100,12 @@ Bot.prototype.turn = function(ddir) {
     this.dir = Cell.fixDir(this.dir + ddir);
     this.turnTo(this.pic.getRotation() + ddir*Math.PI/2);
 };
+Bot.prototype.turnRight = function() {
+    this.turn(1);
+}
+Bot.prototype.turnLeft = function() {
+    this.turn(-1);
+}
 Bot.prototype.focus = function() {
     this.pic.body.setShadowEnabled(true);
 }
